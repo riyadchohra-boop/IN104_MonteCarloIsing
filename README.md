@@ -1,4 +1,3 @@
-IN104: Monte Carlo Simulation of the Ising Model
 Welcome to Timothée & Riyad's project "Monte Carlo Simulation of the Ising Model"
 
 The first step of our project (April 14th) was to familiarize ourselves with the rand() function in C, which will be very useful later on for randomly simulating states (-1 or 1).
