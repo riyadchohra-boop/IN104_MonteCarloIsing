@@ -1,7 +1,7 @@
 Welcome to Timothée & Riyad's project "Monte Carlo Simulation of the Ising Model"
 
 The first step of our project (April 14th) was to familiarize ourselves with the rand() function in C, which will be very useful later on for randomly simulating states (-1 or 1).
-The teacher then suggested we start with 3 different exercises: Approximating pi in 2 different ways and calculating a "complicated" integral.
+The teacher then suggested we start with 3 different exercises: Approximating pi in 2 different ways and calculating a "complicated" integral. (SEE pi.c in the repertory)
 
 A first way is to randomly place points on a 1x1 square and count the ones that fall within the inscribed circle of radius 1/2. This way, we know that (Number of points in the circle) / (Total number of placed points) = pi/4, the area of the inscribed circle. We then just have to isolate pi from this!
 
