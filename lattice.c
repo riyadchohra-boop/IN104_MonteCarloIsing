@@ -6,7 +6,7 @@
 
 #include "lattice.h"
 
-
+// création de la grille
 SquareLattice create_lattice(int Lx, int Ly, bool pbc) {
     SquareLattice lat;
     lat.Lx = Lx;
