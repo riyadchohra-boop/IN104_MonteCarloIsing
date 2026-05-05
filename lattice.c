@@ -63,7 +63,9 @@ double compute_autocorrelation(double *obs, int n_steps, int tau) {
 
     if (var == 0.0) return 0.0; 
 
-    // Covariance (numérateur de la formule)
+
+
+    
     double autocov = 0.0;
     int n_pairs = n_steps - tau; 
     
@@ -96,7 +98,7 @@ double compute_energy(SquareLattice *lat, double J) {
                 if (j + 1 < Ly) bottom_neighbor = lat->spins[i][j + 1];
             }
             
-            // Somme des interactions avec le voisin de droite et du bas
+            
             energy += current_spin * (right_neighbor + bottom_neighbor);
         }
     }
@@ -105,17 +107,6 @@ double compute_energy(SquareLattice *lat, double J) {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-// Calcule la magnétisation moyenne du système
 double compute_magnetization(SquareLattice *lat) {
     double total_spin = 0.0;
 
