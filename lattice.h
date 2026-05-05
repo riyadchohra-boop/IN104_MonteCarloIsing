@@ -27,6 +27,5 @@ void free_lattice(SquareLattice *lat);
 double compute_energy(SquareLattice *lat, double J);
 double compute_magnetization(SquareLattice *lat);
 
-double compute_autocorrelation(double *obs, int n_steps, int tau);
 
 #endif
