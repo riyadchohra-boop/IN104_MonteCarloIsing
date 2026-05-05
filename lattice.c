@@ -63,7 +63,7 @@ double compute_autocorrelation(double *obs, int n_steps, int tau) {
 
     if (var == 0.0) return 0.0; 
 
-    // Covariance (numérateur de la formule) [cite: 109]
+    // Covariance (numérateur de la formule)
     double autocov = 0.0;
     int n_pairs = n_steps - tau; 
     
