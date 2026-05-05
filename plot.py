@@ -21,7 +21,6 @@ with open("gauss.dat", "r") as f:
         gauss_estimates.append(gauss)
 
 
-# Plotting
 plt.style.use('seaborn-v0_8')
 plt.figure(figsize=(10, 6))
 plt.plot(N_values, pi_estimates, label='Estimate of π', marker='o', markersize=4)
