@@ -1,4 +1,3 @@
-# Generating plot of Monte Carlo estimates of pi and Gaussian integral vs N (log scale)
 import numpy as np
 import matplotlib.pyplot as plt
 import math
@@ -7,7 +6,7 @@ import math
 pi_estimates = []
 N_values=[]
 gauss_estimates = []
-with open("x:\IN104_MonteCarloIsing\pi.dat", "r") as f:
+with open("pi.dat", "r") as f:
     for l in f:
         ligne = [d for d in l.split(" ")]
         pi = float(ligne[0])
@@ -15,7 +14,7 @@ with open("x:\IN104_MonteCarloIsing\pi.dat", "r") as f:
         pi_estimates.append(pi)
         N_values.append(N)
 
-with open("x:\IN104_MonteCarloIsing\gauss.dat", "r") as f:
+with open("gauss.dat", "r") as f:
     for l in f:
         ligne = [d for d in l.split(" ")]
         gauss = float(ligne[0])
