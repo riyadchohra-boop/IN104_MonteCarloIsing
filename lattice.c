@@ -74,3 +74,56 @@ double compute_autocorrelation(double *obs, int n_steps, int tau) {
 
     return autocov / var;
 }
+
+
+
+double compute_energy(SquareLattice *lat, double J) {
+    double energy = 0.0;
+    int Lx = lat->Lx;
+    int Ly = lat->Ly;
+
+    for (int i = 0; i < Lx; i++) {
+        for (int j = 0; j < Ly; j++) {
+            int current_spin = lat->spins[i][j];
+            int right_neighbor = 0;
+            int bottom_neighbor = 0;
+            
+            if (lat->pbc) {
+                right_neighbor = lat->spins[(i + 1) % Lx][j];
+                bottom_neighbor = lat->spins[i][(j + 1) % Ly];
+            } else {
+                if (i + 1 < Lx) right_neighbor = lat->spins[i + 1][j];
+                if (j + 1 < Ly) bottom_neighbor = lat->spins[i][j + 1];
+            }
+            
+            // Somme des interactions avec le voisin de droite et du bas
+            energy += current_spin * (right_neighbor + bottom_neighbor);
+        }
+    }
+
+    return -J * energy;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+// Calcule la magnétisation moyenne du système
+double compute_magnetization(SquareLattice *lat) {
+    double total_spin = 0.0;
+
+    for (int i = 0; i < lat->Lx; i++) {
+        for (int j = 0; j < lat->Ly; j++) {
+            total_spin += lat->spins[i][j];
+        }
+    }
+
+    return total_spin / (double)lat->L;
+}
