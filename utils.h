@@ -15,7 +15,7 @@ double calc_variance(double arr[], int n);
 
 double calc_std(double arr[], int n);  // standard deviation
 
-double *calc_autocorr(double arr[], int n,int n_autoc);  // autocorrelation
+double compute_autocorrelation(double *obs, int n_steps, int tau);
 
 void write_to_file_iter(double *arr, int n, char *name);
 
