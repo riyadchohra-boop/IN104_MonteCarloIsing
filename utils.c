@@ -6,35 +6,37 @@
 #include <math.h>
 
 
-
-double compute_autocorrelation(double *obs, int n_steps, int tau) {
-    if (tau >= n_steps) return 0.0; // Sécurité
-
+double calc_mean(double arr[], int N){
     double mean = 0.0;
+    for (int i = 0; i < N; i++) {
+        mean += arr[i];
+    }
+    return mean / N;
+}
+
+double calc_variance(double arr[], int N){
     double var = 0.0;
-    
-    // espérence
-    for (int i = 0; i < n_steps; i++) {
-        mean += obs[i];
+    double mean = calc_mean(arr ,N );
+    for (int i = 0; i < N; i++) {
+        var += (arr[i] - mean) * (arr[i] - mean);
     }
-    mean /= n_steps;
+    return var / N;
 
-    // variance
-    for (int i = 0; i < n_steps; i++) {
-        var += (obs[i] - mean) * (obs[i] - mean);
-    }
-    var /= n_steps;
+}
 
+
+double compute_autocorrelation(double *arr, int N, int tau) {
+    if (tau >= N) return 0.0; // Sécurité
+
+    double mean = calc_mean(arr, N);
+    double var = calc_variance(arr, N);
     if (var == 0.0) return 0.0; 
 
-
-
-    
     double autocov = 0.0;
-    int n_pairs = n_steps - tau; 
+    int n_pairs = N - tau; 
     
     for (int i = 0; i < n_pairs; i++) {
-        autocov += (obs[i] - mean) * (obs[i + tau] - mean);
+        autocov += (arr[i] - mean) * (arr[i + tau] - mean);
     }
     autocov /= n_pairs;
 
