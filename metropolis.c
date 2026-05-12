@@ -15,7 +15,7 @@ double boltzman_probability(double delta_E, double T) {
 }
 
 
-int move(ising *model, int *state) {
+int move(ising *model) {
     int i = rand() % model->lat->Lx;
     int j = rand() % model->lat->Ly;
     int current_spin = model->lat->spins[i][j];
